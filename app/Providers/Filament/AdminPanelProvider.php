@@ -19,6 +19,8 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use App\Filament\Pages\Auth\Register;
+use Filament\Pages\Auth\Register as AuthRegister;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -29,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->registration(AuthRegister::class)
             ->colors([
                 'primary' => Color::Amber,
             ])
